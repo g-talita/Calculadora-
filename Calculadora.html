@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Calculadora</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .col{
+            display: flex;
+        }
+        .calculadora{
+            width: auto;
+            padding: 10px;
+            height: 631px;
+            text-align: center;
+            background-color: rgb(0, 0, 0);
+        }
+        .btn
+        {
+            width: 25%;
+            height: 66px;
+            margin: 1px;
+            border-radius: 5px;
+            background-color: rgb(71, 71, 71);
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 30px;
+        } 
+        .azul{
+            width: 25%;
+            height: 66px;
+            margin: 1px;
+            border-radius: 5px;
+            background-color: rgb(88, 188, 255);
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 30px;
+        }
+        .cnz
+        {
+            width: 25%;
+            height: 66px;
+            margin: 1px;
+            border-radius: 5px;
+            background-color: rgb(63, 63, 63);
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 30px;
+        } 
+        .num{
+            height: 75%;
+        }
+        .btn:hover{
+            background-color: rgb(63, 63, 63);
+        }
+        .azul:hover{
+            background-color: rgb(72, 153, 207);
+        }
+        .cnz:hover{
+            background-color: rgb(71, 71, 71);
+        }
+        #display{
+            font-size: 40px;
+            color: #f3f3f3;
+            background-color: black;
+            border: none;
+            width: 100%;
+            height: 100%;
+            text-align: right;
+        }
+        *{
+            margin: 0;
+        }
+        .display{
+            height: 25%;
+        }
+        
+    </style>
+
+    <script lang="JavaScript">
+
+        var n1, ope, fim;
+
+        
+
+        
+        function Add(value)
+        {
+            if(document.getElementById('display').value == "0")
+            {
+                document.getElementById('display').value = "";
+            }
+
+            document.getElementById('display').value += value;
+        }
+
+        function Ad(value)
+        {
+            if(document.getElementById('display').value == "0")
+            {
+                document.getElementById('display').value = "";
+            }
+
+            n1 = parseFloat(document.getElementById('display').value);
+
+            ope = value;
+
+            document.getElementById('display').value = "";
+        }
+
+        function calcular()
+        {
+            n2 = parseFloat(document.getElementById('display').value)
+
+            if(ope == "+")
+            {
+                document.getElementById("display").value = (n1 + n2);
+            }
+            if(ope == "-")
+            {
+                document.getElementById("display").value = (n1 - n2);
+            }
+            if(ope == "*")
+            {
+                document.getElementById("display").value = (n1 * n2);
+            }
+            if(ope == "/")
+            {
+                document.getElementById("display").value = (n1 / n2);
+            }
+
+        }
+
+        function limparDisplay()
+        {
+            document.getElementById('display').value = "";
+        }
+    </script>
+</head>
+<body>
+
+    <div class="calculadora">
+<div class="display">
+    <input id="display" type="text" readonly value="0">
+</div>
+
+<div class="num">
+<div class="col">
+    <button class="btn" onclick="Add('7')">7</button>
+    <button class="btn" onclick="Add('8')">8</button>
+    <button class="btn" onclick="Add('9')">9</button>
+    <button class="cnz" onclick="Ad('*')">x</button>
+</div>
+
+<div class="col">
+    <button class="btn" onclick="Add('4')">4</button>
+    <button class="btn" onclick="Add('5')">5</button>
+    <button class="btn" onclick="Add('6')">6</button>
+    <button class="cnz" onclick="Ad('-')">-</button>
+</div>
+
+<div class="col">
+    <button class="btn" onclick="Add('1')">1</button>
+    <button class="btn" onclick="Add('2')">2</button>
+    <button class="btn" onclick="Add('3')">3</button>
+    <button class="cnz" onclick="Ad('+')">+</button>
+</div>
+
+<div class="col">
+    <button class="btn" onclick="Add('.')">,</button>
+    <button class="btn" onclick="Add('0')">0</button>
+    <button class="azul" onclick="calcular()">=</button>
+    <button class="btn" onclick="Ad('/')">/</button>
+</div>
+</div>
+</div>
+</body>
+</html>
